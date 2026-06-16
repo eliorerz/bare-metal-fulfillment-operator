@@ -1,13 +1,12 @@
 # bare-metal-fulfillment-operator
 
-Kubernetes operator for managing bare metal host pools in the OSAC project. Defines BareMetalPool and BareMetalInstance CRDs. Integrates with OpenStack inventory systems and Ironic for power management. Defines Profiles which run Ansible playbooks for additional configuration on the CRDs. Includes Helm charts for deployment.
+Kubernetes operator for managing bare-metal host pools in the OSAC project. Defines BareMetalPool and BareMetalInstance CRDs. Integrates with OpenStack inventory systems and Ironic for power management. Defines Profiles which run Ansible playbooks for additional configuration on the CRDs. Includes Helm charts for deployment.
 
 ## Critical Rules
 
 - **Always `make manifests generate`** after modifying CRD types in `api/v1alpha1/*_types.go`
 - **Always `make helm-crds`** after regenerating CRDs (or run `make check-helm-crds` to verify sync)
 - **Never edit** `config/crd/`, `zz_generated.deepcopy.go` — these are generated
-- **Always `make lint`** before committing — fix all golangci-lint issues
 - **Always `go mod tidy`** before committing
 - Run `make lint test` before committing
 
@@ -77,7 +76,7 @@ bare-metal-fulfillment-operator/
 ## Resources Managed
 
 - **BareMetalPool** — defines host sets (type + replica count) with optional profile; phases: Progressing, Ready, Failed, Deleting
-- **BareMetalInstance** — individual bare metal host with inventory allocation and power lifecycle; phases: Allocating, Progressing, Ready, Failed, Deleting
+- **BareMetalInstance** — individual bare-metal host with inventory allocation and power lifecycle; phases: Allocating, Progressing, Ready, Failed, Deleting
 
 ## Architecture
 
